@@ -1,55 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desenvolvimento Web</title>
-
+ 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
+
+ 
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/principal.css">
     <link rel="stylesheet" href="./css/grid.css">
     <link rel="stylesheet" href="./css/componente.css">
     <link rel="stylesheet" href="./css/mensagens.css">
+ 
+<!-- MODEL -->
+    <script src="./model/alunos.js" defer></script>
+    <script src="./model/notas-model.js" defer></script>
 
-<!-- MODEL primeiro -->
-<script src="./model/alunos.js" defer></script>
-<script src="./model/notas-model.js" defer></script>
+<!-- VIEW -->
+    <script src="./js/view/notas-view.js" defer></script>
 
-<!-- VIEW depois -->
-<script src="./js/view/notas-view.js"></script>
-
-<!-- CONTROLLERS por último -->
-
-<script src="./controller/consultar-alunos.js" defer></script>
-<script src="./controller/excluir-aluno.js" defer></script>
-<script src="./controller/notas-controller.js" defer></script>
-<script src="./controller/salvar-alunos.js" defer></script>
-
-<!-- FORM por último de todos -->
-
-
-</head>
-
+<!-- CONTROLLER -->
+    <script src="./controller/consultar-alunos.js" defer></script>
+    <script src="./controller/excluir-aluno.js" defer></script>
+    <script src="./controller/notas-controller.js" defer></script>
+    <script src="./controller/salvar-alunos.js" defer></script>
+ 
+    </head>
+ 
 <body>
     <header>
         <div class="caixa">
             <h1 class="titulo-pagina">Senac Taboão</h1>
         </div>
     </header>
+    
     <main>
         <div class="caixa">
             <h2 class="titulo-h2">Lista de alunos</h2>
-
+ 
             <div class="row">
                 <div class="col-10 col-s-12"></div>
                 <div class="col-2 col-s-12">
                     <button id="btnConsultarAluno" type="button" class="btn btn-info">Consultar alunos</button>
                 </div>
             </div>
-
+ 
             <table id="tabela-alunos">
                 <thead>
                     <tr>
@@ -61,39 +60,36 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
-                </tbody>
+                    </tbody>
             </table>
         </div>
     </main>
+ 
     <section>
         <div class="caixa">
-            <h2 class="titulo-h2">
-                Cadastro de aluno
-            </h2>
+            <h2 class="titulo-h2">Cadastro de aluno</h2>
+            
             <form id="frmAluno">
                 <div class="row">
                     <div class="col-12 col-s-12" id="divMensagens">
-                        <!--Div para as mensagens do formulário-->
-                    </div>
+                        </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-4 col-s-12">
                         <label for="txtNome" class="rotulo">Nome:</label>
-                        <input type="text" id="txtNome" name="nome" placeholder="Informe o nome do aluno" maxlength="50"
-                            required class="caixa-texto">
+                        <input type="text" id="txtNome" name="nome" placeholder="Informe o nome do aluno" maxlength="50" required class="caixa-texto">
                     </div>
                     <div class="col-4 col-s-6">
                         <label for="txtTrabalho" class="rotulo">Nota trabalho:</label>
-                        <input type="number" id="txtTrabalho" name="trabalho" class="caixa-texto"
-                            placeholder="Nota do trabalho" step=".01">
+                        <input type="number" id="txtTrabalho" name="trabalho" class="caixa-texto" placeholder="Nota do trabalho" step=".01">
                     </div>
                     <div class="col-4 col-s-6">
                         <label for="txtProva" class="rotulo">Nota prova:</label>
-                        <input type="number" id="txtProva" name="prova" class="caixa-texto" placeholder="Nota da prova"
-                            step=".01">
+                        <input type="number" id="txtProva" name="prova" class="caixa-texto" placeholder="Nota da prova" step=".01">
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-10 col-s-12"></div>
                     <div class="col-2 col-s-12">
@@ -104,5 +100,5 @@
         </div>
     </section>
 </body>
-
+ 
 </html>

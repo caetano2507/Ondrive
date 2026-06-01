@@ -6,8 +6,9 @@ exports.listar = (req, res) => {
 };
 
 exports.salvar = (req, res) => {
-    const novoAluno = model.cadastrarAluno(req.body);
-    res.status(201).json(novoAluno);
+    model.cadastrarAluno(req.body, (novoAluno) => {
+        res.status(201).json(novoAluno);
+    });
 };
 
 exports.excluir = (req, res) => {

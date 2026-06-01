@@ -1,5 +1,3 @@
-// repositories
-const fs = require("fs");
 const conexao = require("../../database/conexao.js");
 
 exports.listar = (callback) => {
@@ -14,7 +12,22 @@ exports.listar = (callback) => {
     });
 };
 
+exports.salvar = (aluno, callback) => {
+    const sql = `
+        INSERT INTO aluno (nome, trabalho, prova)
+        VALUES (?, ?, ?)
+    `;
 
-exports.salvarTodos = (lista) => {
-    fs.writeFileSync("alunos.json", JSON.stringify(lista, null, 2));
+    conexao.query(
+        sql,
+        [aluno.nome, aluno.trabalho, aluno.prova],
+        (erro, resultado) => {
+            if (erro) {
+                throw erro;
+            }
+
+            aluno.id = resultado.insertId;
+            callback(aluno);
+        }
+    );
 };

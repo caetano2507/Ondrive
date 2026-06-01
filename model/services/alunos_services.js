@@ -2,21 +2,11 @@
 const alunosRepository = require("../repositories/alunos_repositorio");
 
 exports.listarAlunos = (callback) => {
-    alunosRepository.listar((resultado) => {
-        callback(resultado);
-    });
+    alunosRepository.listar(callback);
 };
 
-exports.cadastrarAluno = (aluno) => {
-    const alunos = alunosRepository.listar();
-    const novoId = alunos.length > 0
-        ? alunos[alunos.length - 1].id + 1
-        : 1;
-
-    aluno.id = novoId;
-    alunos.push(aluno);
-    alunosRepository.salvarTodos(alunos);
-    return aluno;
+exports.cadastrarAluno = (aluno, callback) => {
+    alunosRepository.salvar(aluno, callback);
 };
 
 
